@@ -14,3 +14,5 @@ Description: CLI tools to burn, catalog data and audio CD-R[W]s
  mkat is a set of command line tools to burn, catalog audio and data
  CD-R[W]s and then search the catalog database, e.g. check if you have
  certain file or audio CD in your collection.
+ .
+ It is essentially a transparent frontend to cdrecord, mkisofs, etc.
