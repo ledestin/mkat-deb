@@ -26,9 +26,20 @@ set -e
 
 #I only need to create /etc/mkatrc with values from debconf db
 CONFIG=/etc/mkatrc
+CUSTOM_HEADER='###CUSTOM SECTION'
 case "$1" in
     configure)
+      if [ -f $CONFIG ]; then
+	CUSTOM=`sed -n '/^###CUSTOM SECTION/,$ p' $CONFIG`
+	#if older version config, save old values under CUSTOM section
+	[ -z "$CUSTOM" ] && CUSTOM="$CUSTOM_HEADER\n"`sed -n '/^[^#]/ s/^/#/p' $CONFIG`
+      else
+	CUSTOM=$CUSTOM_HEADER
+      fi
       > $CONFIG
+      echo "#this is an automatically generated section" >> $CONFIG
+      echo "#values written here are taken from debconf" >> $CONFIG
+      echo "#to override debconf values use the CUSTOM SECTION" >> $CONFIG
       questions="drive cd tmp listdir autofs_delay mkimage_opts cdrec_opts mkimage_cmd iso_image"
       for q in $questions; do
         db_metaget mkat/$q description
@@ -37,6 +48,8 @@ case "$1" in
 	echo -n $q | tr '[:lower:]' '[:upper:]' >> $CONFIG
 	echo "=\"$RET\"" >> $CONFIG
       done
+      echo "MKAT_LIBPATH=/usr/share/mkat" >> $CONFIG
+      echo -e "$CUSTOM" >> $CONFIG
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
