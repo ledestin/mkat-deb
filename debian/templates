@@ -1,0 +1,71 @@
+Template: mkat/drive
+Type: string
+Default: /dev/cdrom
+Description: Physical CD drive to get CD label from, etc.
+ MKAT needs access to the physical CD drive to get CD labels, audio CD
+ ids, rip audio CDs. Programs like cdparanoia(1) can be passed this value as a
+ parameter.
+
+Template: mkat/cd
+Type: string
+Description: CD drive mount point (optional)
+ If you want to check if the CD you've burned does indeed contain data you
+ intended, files from the burned CD can be compared with the files the iso
+ image was created from. You need to specify a directory where to read CD
+ files from.
+ .
+ USE AUTOFS TO MOUNT CD, MKAT WON'T MOUNT IT
+
+Template: mkat/tmp
+Type: string
+Default: /tmp/$USER
+Description: Temporary dir where to put iso images and ripped wav files.
+ Specify a directory where an iso image will be created when you call burn(1).
+ $USER will be replaced with the user name you run burn(1)
+ (and other MKAT programs) under.
+ Actually, $USER is just an environment variable.
+
+Template: mkat/listdir
+Type: string
+Default: $HOME/.mkat
+Description: Place to hold your CD catalog database
+ mkat(1) creates a .list file for each CD, so that you have
+ information about file names, size and md5 sums contained on a CD. This
+ variable defines where those files are stored.
+
+Template: mkat/autofs_delay
+Type: string
+Default: 6
+Description: Amount of seconds to wait before ejecting CD
+ This package presumes you use some kind of automounter that unmounts a
+ media when it's no longer used for a certain amount of time.
+
+Template: mkat/mkimage_opts
+Type: string
+Default: -J -file-mode 444 -graft-points
+Description: Arguments for an image creation program (optional)
+ These are additional mkisofs options. -V (label), -o (image) and files to
+ put into image are passed automatically. Leave intact if unsure.
+
+Template: mkat/mkimage_cmd
+Type: string
+Default: mkisofs $MKIMAGE_OPTS -V \"\$LABEL\" -o \"\$ISO_IMAGE\" \"\${FILES[@]}\"
+Description: Command to create $ISO_IMAGE
+ Ahh, the ultimate flexibility. But does anyone need that?
+
+Template: mkat/cdrec_opts
+Type: string
+Default: -v
+Description: cdrecord will be passed these arguments (optional)
+ By default, -v (verbose mode) is specified. I can't think of any more
+ options I would want to pass every time to cdrecord. If you want to burn
+ in -dummy mode, just use burn(1) with -r option to passthrough the options
+ to cdrecord.
+ .
+ Leave intact if unsure.
+
+Template: mkat/iso_image
+Type: string
+Default: $TMP/cdimage.iso
+Description: Filename for iso image to be created by burn(1)
+ You're a control freak if you want to change this.
