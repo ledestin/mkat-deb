@@ -2,12 +2,12 @@ Source: mkat
 Section: utils
 Priority: optional
 Maintainer: Dmitry Maksyoma <ledestin@amur.ru>
-Build-Depends: debhelper (>> 4.0.0)
+Build-Depends: debhelper (>> 4.0.0), cvs2cl
 Standards-Version: 3.5.8
 
 Package: mkat
 Architecture: all
-Depends: debconf (>=0.5), mkisofs, cdrecord, cdparanoia, cd-discid
+Depends: debconf (>=0.5), mkisofs, cdrecord, cdparanoia, cd-discid, liblockfile1
 Suggests: autofs
 Conflicts: burn
 Description: CLI tools to burn, catalog data and audio CD-R[W]s
