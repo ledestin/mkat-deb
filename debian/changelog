@@ -1,8 +1,14 @@
+mkat (0.2.1) unstable; urgency=low
+
+  * bugfix release
+
+ -- Dmitry Maksyoma <ledestin@amur.ru>  Wed, 22 Sep 2004 20:53:40 +1000
+
 mkat (0.2) unstable; urgency=low
 
   * added dependency on liblockfile1
 
- -- Dmitry Maksyoma <ledestin@dannan>  Sat,  4 Sep 2004 02:41:52 +1000
+ -- Dmitry Maksyoma <ledestin@amur.ru>  Sat,  4 Sep 2004 02:41:52 +1000
 
 mkat (0.1) unstable; urgency=low
 

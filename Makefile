@@ -19,7 +19,7 @@ up: build
 
 src:
 	-cvs co -d $(SRC) mkat
-	-cvs2cl -t --stdout > $(SRC)/changelog
+	-cvs2cl -t -R '^[^#]+$$' --stdout > $(SRC)/changelog
 
 clean:
 	fakeroot debian/rules clean
