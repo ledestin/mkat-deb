@@ -1,8 +1,9 @@
 mkat (0.2.1) unstable; urgency=low
 
+  * Initial upload to Debian (Closes: #273334)
   * bugfix release
 
- -- Dmitry Maksyoma <ledestin@amur.ru>  Wed, 22 Sep 2004 20:53:40 +1000
+ -- Dmitry Maksyoma <ledestin@dannan>  Sat, 25 Sep 2004 23:02:10 +1000
 
 mkat (0.2) unstable; urgency=low
 
