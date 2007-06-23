@@ -1,7 +1,13 @@
-mkat (0.3-1) unstable; urgency=low
+mkat (0.4-1) unstable; urgency=low
 
   * new upstream version
   * Initial upload to Debian (Closes: #273334)
+
+ -- Dmitry Maksyoma <ledestin@amur.ru>  Tue,  6 Sep 2005 14:25:42 +1000
+
+mkat (0.3-1) unstable; urgency=low
+
+  * new upstream version
 
  -- Dmitry Maksyoma <ledestin@amur.ru>  Sun, 20 Feb 2005 00:39:26 +0900
 
