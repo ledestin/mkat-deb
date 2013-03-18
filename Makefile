@@ -1,7 +1,7 @@
 MODULE := mkat
 SRC := src
 
-PACKAGE = dpkg-buildpackage -rfakeroot -I'*.swp' -ICVS -iCVS
+PACKAGE = dpkg-buildpackage -rfakeroot -I'*.swp' -i.svn
 CHECK := lintian -i ../$(MODULE)*deb
 
 #package, but don't sign (good for everyday life)
