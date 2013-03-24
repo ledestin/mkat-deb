@@ -3,6 +3,8 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+SHELL := /bin/bash
+
 SRC := src
 DESTDIR=$(CURDIR)/debian/mkat
 
@@ -34,7 +36,7 @@ install: build
 	dh_installdirs
 
 	cp $(SRC)/burn* $(SRC)/mkat* $(DESTDIR)/usr/bin
-	cp $(SRC)/helpers.sh $(DESTDIR)/usr/share/mkat
+	cp $(SRC)/{common.sh,helpers.sh} $(DESTDIR)/usr/share/mkat
 
 
 binary-indep: build install

@@ -1,7 +1,9 @@
 MODULE := mkat
-SRC := src
+VERSION := 0.5
+DEB := ../$(MODULE)_$(VERSION)*.deb
+SRC := https://github.com/ledestin/mkat.git
 
-PACKAGE = dpkg-buildpackage -rfakeroot -I'*.swp' -i.svn
+PACKAGE = dpkg-buildpackage -rfakeroot -I'*.swp' -i.git
 CHECK := lintian -i ../$(MODULE)*deb
 
 #package, but don't sign (good for everyday life)
@@ -14,14 +16,18 @@ debuild: src
 	$(PACKAGE)
 	$(CHECK)
 
-up: build
-	debrelease --dput -f local
+sign:
+	gpg -b $(DEB)
 
 src:
-	-cvs co -d $(SRC) mkat
-	-cd $(SRC) && cvs2cl -t -R '^[^#]+$$' -f changelog
+	git clone $(SRC) src
+	cd src && make changelog
 
 clean:
+	rm -rf src
 	fakeroot debian/rules clean
 
-.PHONY: build debuild up src clean
+upload_savannah:
+	scp $(DEB) $(DEB).sig ledestin@dl.sv.gnu.org:/releases/mkat/
+
+.PHONY: build clean debuild sign upload_savannah

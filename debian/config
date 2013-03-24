@@ -3,9 +3,10 @@
 set -e
 . /usr/share/debconf/confmodule
 
-questions="drive cd tmp listdir autofs_delay mkimage_opts cdrec_opts mkimage_cmd iso_image"
-drive=medium; cd=medium; tmp=medium; listdir=medium; autofs_delay=medium;
-mkimage_opts=medium; cdrec_opts=medium; mkimage_cmd=low; iso_image=low;
+questions="drive cd tmp listdir autofs_delay mkimage_opts cdrec_opts cd_burn_cmd dvd_burn_cmd mkimage_cmd iso_image"
+drive=medium; cd=high; tmp=medium; listdir=medium; autofs_delay=medium;
+mkimage_opts=medium; cdrec_opts=medium; cd_burn_cmd=low; dvd_burn_cmd=low;
+mkimage_cmd=low; iso_image=low;
 
 for q in $questions; do
 #  db_fset mkat/$q seen false

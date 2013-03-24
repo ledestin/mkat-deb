@@ -1,23 +1,23 @@
 Source: mkat
 Section: utils
 Priority: optional
-Maintainer: Dmitry Maksyoma <ledestin@amur.ru>
-Build-Depends: debhelper (>> 4.0.0), cvs2cl
+Maintainer: Dmitry Maksyoma <ledestin@gmail.com>
+Build-Depends: debhelper (>> 4.0.0)
 Standards-Version: 3.5.8
 
 Package: mkat
 Architecture: all
-Depends: debconf (>=0.5), mkisofs, cdrecord, dvd+rw-tools, cdparanoia, cd-discid, liblockfile1
+Depends: debconf (>=0.5), dvd+rw-tools, cdparanoia, cd-discid, genisoimage, liblockfile1, realpath, wodim
 Suggests: autofs
 Conflicts: burn
-Description: Burn, catalog, search data CD/DVD, audio CD or directories
- mkat is a set of command line tools to burn and catalog audio, data
- CD/DVD and arbitrary directories. Firstly, it's a convenient frontend to
- cdrecord/growisofs/mkisofs, secondly, it can catalog CD/DVDs.
- Catalog database can then be used to, for example, check whether
- you have a certain file or audio CD in your collection. Tags can be used 
- to categorize CD/DVDs, e.g. comedy, drama, kids, sports.
+Description: Burn, catalog, search data CD/DVD/BD, audio CD or directories
+ Command line tools to burn and catalog audio, data CD/DVD/BD and arbitrary
+ directories. Firstly, it's a convenient frontend to
+ wodim/growisofs/genisoimage, secondly, it can catalog CD/DVD/BDs.  Catalog
+ database can then be used to, for example, check whether you have a certain
+ file or audio CD in your collection. Tags can be used to categorize discs, e.g.
+ comedy, drama, kids, sports.
  .
  Options can be passed to the programs doing the real work:
- cdrecord/growisofs, mkisofs, grep. The catalog database consists
- of plain text files.
+ wodim/growisofs, genisoimage, grep. The catalog database consists of plain text
+ files.
