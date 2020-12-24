@@ -4,7 +4,7 @@ DEB := ../$(MODULE)_$(VERSION)*.deb
 SRC := https://github.com/ledestin/mkat.git
 
 PACKAGE = dpkg-buildpackage -rfakeroot -I'*.swp' -i.git
-CHECK := lintian -i ../$(MODULE)*deb
+CHECK := lintian -i ../$(MODULE)*.deb
 
 #package, but don't sign (good for everyday life)
 build: src
